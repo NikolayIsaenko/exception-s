@@ -14,13 +14,12 @@ public class Main {
     }
 
     public static void validate(String login, String password, String confirmPassword) {
-        for (int i = 0; i < login.length(); i++) {
-            if (login.length() >= 20 || !login.matches("^[a-zA-Z0-9_]+$")) {
-                throw new WrongLoginException();
-            }
-            if (!password.equals(confirmPassword)) {
-                throw new WrongPasswordException();
-            }
+        if (login.length() >= 20 || !login.matches("^[a-zA-Z0-9_]+$")) {
+            throw new WrongLoginException();
         }
+        if (!password.equals(confirmPassword)) {
+            throw new WrongPasswordException();
+        }
+
     }
 }
